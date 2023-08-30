@@ -1,7 +1,7 @@
 # Canova-GIS-676
 
-# Alyssa Canova
-## Links to lab and homework:
+## Alyssa Canova
+### Links to labs:
 
 | Lab Number     | Link |
 | :----: | :----: |
