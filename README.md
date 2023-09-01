@@ -1,14 +1,15 @@
 # Canova-GIS-676
-
+## GIS Programming
 ## Alyssa Canova
+
 ### Links to labs:
 
-| Lab Number     | Link |
-| :----: | :----: |
-| Lab 1     | https://docs.google.com/presentation/d/1GqY5WTcJWdYY1ALsorODW2IaNhzVZXM-/edit#slide=id.p1      |
-| Lab 2     | https://docs.google.com/presentation/d/11p8EV1jYjOfJlFjV1TsXf9BhYF7tyheT/edit#slide=id.p12       |
-| Lab 3     | https://docs.google.com/presentation/d/12Cwfii9hmNXc_dlda-_mgJCaBSZ1QJjO/edit#slide=id.p33       |
-| Lab 4     | https://docs.google.com/presentation/d/12I6aWr8FEBQ7RtEiWDwI8iOmszSgqzUh/edit#slide=id.p1       |
-| Lab 5     | https://docs.google.com/presentation/d/1BX_9vwjegQC402XJUT5WzTeysdZAZ-Sw/edit#slide=id.p1       |
-| Lab 6     | https://docs.google.com/presentation/d/1BabEanWibf6rhoWCOiPFPPxl-nOEORZK/edit#slide=id.p1        |
-| Lab 7     | https://docs.google.com/presentation/d/1hhJKMDUkHwDxA3LgS205LCx83ie6Hu-3/edit#slide=id.p1        |
+| Labs      |
+| :----: |
+| [LAB-1](LAB-1/README.md) |
+| [LAB-2](LAB-2/README.md) |
+| [LAB-3](LAB-3/README.md) |
+| [LAB-4](LAB-4/README.md) |
+| [LAB-5](LAB-5/README.md) |
+| [LAB-6](LAB-6/README.md) |
+| [LAB-7](LAB-7/README.md) |
