@@ -6,10 +6,10 @@
 
 | Labs      |
 | :----: |
-| [LAB-1](LAB-1/README.md) |
-| [LAB-2](LAB-2/README.md) |
-| [LAB-3](LAB-3/README.md) |
-| [LAB-4](LAB-4/README.md) |
-| [LAB-5](LAB-5/README.md) |
-| [LAB-6](LAB-6/README.md) |
-| [LAB-7](LAB-7/README.md) |
+|[Lab01](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab01//README.md) |
+|[Lab02](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab02//README.md) |
+|[Lab03](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab03//README.md) |
+|[Lab04](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab04//README.md) |
+|[Lab05](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab05//README.md) |
+|[Lab06](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab06//README.md) |
+|[Lab07](/Users/alyssacanova/DevSource/Canova-GIS-676/labs/Lab07//README.md) |
