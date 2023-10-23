@@ -1,7 +1,7 @@
 
 # 1.) open text file
 
-file = open(r"/Users/alyssacanova/DevSource/Canova-GIS-676/shape.txt")
+file = open(r"shape.txt")
 lines = file.readlines()
 file.close()
 
@@ -64,7 +64,6 @@ for line in line:
     elif shape == "Circle":
         x = float(components[1])
         totalShapes.append(Circle(x, y))  
-
 
 # 4.) Iterate through your list and print out the area for each shape
 
