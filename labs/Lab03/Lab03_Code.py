@@ -49,7 +49,7 @@ class Rectangle(Shape):
 
 totalShapes = []
 
-for line in line:
+for line in lines:
     components = line.split(",")
     shape = components[0]
     
@@ -60,10 +60,10 @@ for line in line:
     elif shape == "Triangle":
         x = float(components[1])
         y = float(components[2])
-        totalShapes.append(Rectangle(x, y))
+        totalShapes.append(Triangle(x, y))  # Change this line to use Triangle instead of Rectangle
     elif shape == "Circle":
         x = float(components[1])
-        totalShapes.append(Circle(x, y))  
+        totalShapes.append(Circle(x)) 
 
 # 4.) Iterate through your list and print out the area for each shape
 
