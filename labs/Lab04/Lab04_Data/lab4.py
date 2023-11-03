@@ -24,7 +24,7 @@ garage_points = gdb_path + '\\' + garage_layer_name
 
 ### open campus gdb and obtain building feature ###
 campus = r'C:\Users\canov\OneDrive\Desktop\GIS_676\Canova-GIS-676\labs\Lab04\Lab04_Data\Campus.gdb'
-buildings_campus = campus + '\\Structures'
+buildings_campus = campus + '\\' + 'Structures'
 
 ### destination path for building feature A
 buildings = gdb_path + '\\' + 'Buildings'
