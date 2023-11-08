@@ -53,9 +53,56 @@ class Tool(object):
         """Modify the messages created by internal validation for each tool
         parameter.  This method is called after internal validation."""
         return
-
+    
     def execute(self, parameters, messages):
-        """The source code of the tool."""
+        GDB_Folder = parameters[0].valueAsText
+        GDB_Name = parameters[1].valueAsText
+        garage_csv_file = parameters[2].valueAsText
+        garageLayer_name = parameters[3].valueAsText
+        campusGDB_Folder = parameters[4].valueAsText
+        Selected_Garage_Name = parameters[5].valueAsText
+        bufferSize_input = parameters[6].valueAsText
+
+        campus = os.path.join(campusGDB_Folder, 'Campus.gdb')
+        WorkGDB = GDB_Name + ".gdb"
+        database = os.path.join(GDB_Folder, WorkGDB)
+        arcpy.env.overwriteOutput = True
+        if arcpy.Exists(database):
+            pass 
+        else:
+            arcpy.CreateFileGDB_management(GDB_Folder, WorkGDB)
+        arcpy.env.workspace = database
+
+        # import garage esv
+        garages = arcpy.management.MakeXYEventLayer(garage_csv_file, "x", "y", garageLayer_name)
+
+        # search
+        structures = campus + "/Structures"
+        where_clause = "BldgName = '%s'" % Selected_Garage_Name
+        cursor = arcpy.SearchCursor(structures, where_clause=where_clause)
+
+
+        shouldProceed = False
+        
+        for row in cursor:
+            if row.getValue("BldgName") == Selected_Garage_Name:
+                shouldProceed = True
+                break
+
+        if shouldProceed:
+            # select garage as feature layer
+            selected_garage_layer_name = database + "/garage_selected"
+            garage_feature = arcpy.Select_analysis(structures, selected_garage_layer_name, where_clause)
+
+            # Buffer the selected building
+            garage_buff_name = database +"/building_buffed_%s" % (bufferSize_input) 
+            arcpy.Buffer_analysis(garage_feature, garage_buff_name, bufferSize_input + " meter")
+
+            # clip
+            arcpy.Clip_analysis(structures, garage_buff_name, database + "/clip") 
+            arcpy.AddMessage ("Success!!!")
+        else:
+            arcpy.AddError ("Seems we couldn't find the building you entered")
         return
 
     def postExecute(self, parameters):
