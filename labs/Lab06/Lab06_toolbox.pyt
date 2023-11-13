@@ -3,7 +3,6 @@
 import arcpy
 import time
 
-
 class Toolbox(object):
     def __init__(self):
         """Define the toolbox (the name of the toolbox is the name of the
@@ -32,14 +31,15 @@ class RenderTool(object):
         )
 
         param1 = arcpy.Parameter(
-            displayName="Name of layer to render",
+            displayName="Name of layer you want to render",
             name="layername",
             datatype="GPString",
             parameterType="Required",
             direction="Input"
         )
+
         param2 = arcpy.Parameter(
-            displayName="Folder for project render layer",
+            displayName="Folder of the new project for saving the render layer",
             name="newprojectfolder",
             datatype="DEFolder",
             parameterType="Required",
@@ -47,7 +47,7 @@ class RenderTool(object):
         )
 
         param3 = arcpy.Parameter(
-            displayName="New project name",
+            displayName="Name of the new project for saving the render layer",
             name="newprojectname",
             datatype="GPString",
             parameterType="Required",
@@ -55,6 +55,21 @@ class RenderTool(object):
         )
         params = [param0, param1, param2, param3]
         return params
+    
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
     
     def execute(self, parameters, messages):
         """The source code of the tool."""
@@ -75,7 +90,7 @@ class RenderTool(object):
         project = arcpy.mp.ArcGISProject(aprxFileAddress)
         layername = parameters[1].valueAsText
         # grab layer in . aprx
-        if layername =='GarageParking':
+        if layername == 'GarageParking':
             layer = project.listMaps('Map')[0].listLayers()[1]
             symbology = layer.symbology
         
@@ -109,7 +124,7 @@ class RenderTool(object):
             time.sleep(readTime)
             arcpy.AddMessage("saving project...") 
 
-        if layername =='Structures':
+        if layername == 'Structures':
             layer = project.listMaps('Map')[0].listLayers()[0]
             symbology = layer.symbology
 
@@ -147,37 +162,6 @@ class RenderTool(object):
         arcpy.AddMessage("Done!")
         return
     
-class Tool(object):
-    def __init__(self):
-        """Define the tool (tool name is the name of the class)."""
-        self.label = "Tool"
-        self.description = ""
-        self.canRunInBackground = False
-
-    def getParameterInfo(self):
-        """Define parameter definitions"""
-        params = None
-        return params
-
-    def isLicensed(self):
-        """Set whether tool is licensed to execute."""
-        return True
-
-    def updateParameters(self, parameters):
-        """Modify the values and properties of parameters before internal
-        validation is performed.  This method is called whenever a parameter
-        has been changed."""
-        return
-
-    def updateMessages(self, parameters):
-        """Modify the messages created by internal validation for each tool
-        parameter.  This method is called after internal validation."""
-        return
-
-    def execute(self, parameters, messages):
-        """The source code of the tool."""
-        return
-
     def postExecute(self, parameters):
         """This method takes place after outputs are processed and
         added to the display."""
